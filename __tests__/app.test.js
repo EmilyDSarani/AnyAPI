@@ -47,6 +47,14 @@ describe('backend routes', () => {
     };
     expect(res.body).toEqual(expected);
   });
-  
+
+  it.skip('should delete song', async () => {
+    const song = await Song.insert({ title: 'A Girl', artist: 'Blake Shelton', album: 'Bringing Back The Sunshine' });
+
+    const res = await request(app)
+      .delete(`/api/v1/songs/${song.id}`);
+
+    expect(res.body).toEqual(song);
+  });
 
 });
