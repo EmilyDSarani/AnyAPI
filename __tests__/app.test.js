@@ -48,7 +48,7 @@ describe('backend routes', () => {
     expect(res.body).toEqual(expected);
   });
 
-  it.skip('should delete song', async () => {
+  it('should delete song', async () => {
     const song = await Song.insert({ title: 'A Girl', artist: 'Blake Shelton', album: 'Bringing Back The Sunshine' });
 
     const res = await request(app)
