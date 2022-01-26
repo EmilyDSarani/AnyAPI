@@ -11,4 +11,13 @@ describe('backend routes', () => {
   afterAll(() => {
     pool.end();
   });
+  it('should create song', async() => {
+    const res = await request(app)
+      .post('/api/v1/songs')
+      .send({ title: 'Sangria', artist: 'Blake Shelton', album: 'Bringing Back The Sunshine' });
+     
+    expect(res.body).toEqual({ id: expect.any(String), title: 'Sangria', artist: 'Blake Shelton', album: 'Bringing Back The Sunshine' });
+  });
+
+
 });
