@@ -27,4 +27,10 @@ describe('backend routes', () => {
     expect(res.body).toEqual([{  id: expect.any(String), title: 'Sangria', artist: 'Blake Shelton', album: 'Bringing Back The Sunshine' }]);
   });
 
+  it('should get song by id', async () => {
+    const song = await Song.insert({ title: 'Sangria', artist: 'Blake Shelton', album: 'Bringing Back The Sunshine' });
+    const res = await request(app).get(`/api/v1/songs/${song.id}`);
+    expect(res.body).toEqual(song);
+  });
+  
 });
