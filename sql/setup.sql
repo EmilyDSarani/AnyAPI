@@ -8,3 +8,9 @@ CREATE TABLE songs (
   artist TEXT NOT NULL,
   album TEXT NOT NULL
 );
+INSERT INTO songs (title, artist, album)
+VALUES (
+    'Finish Line',
+    'Elton John feat. Stevie Wonder',
+    'The Lockdown Sessions(Christmas Edition)'
+);
